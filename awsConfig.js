@@ -1,13 +1,13 @@
-import aws from 'aws-sdk';
+import { S3 } from '@aws-sdk/client-s3';
 
-
-// Configuring our S3 bucket in React
 const region = "eu-north-1";
 const bucketName = "pro-photos-stored";
-const accessKeyId = import.meta.env.AWS_ACCESS_KEY_ID;
-const secretAccessKey = import.meta.env.AWS_SECRET_ACCESS_KEY;
+const accessKeyId = import.meta.env.VITE_ACCESS_KEY_ID;
+const secretAccessKey = import.meta.env.VITE_SECRET_ACCESS_KEY;
 
-const s3 = new aws.S3({
+console.log(region, bucketName, accessKeyId, secretAccessKey);
+
+const s3 = new S3({
   region,
   accessKeyId,
   secretAccessKey,
@@ -16,4 +16,4 @@ const s3 = new aws.S3({
 
 
 export default s3;
-export {bucketName};
+export {bucketName, region};
