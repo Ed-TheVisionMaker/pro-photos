@@ -11,7 +11,7 @@ const setupS3Client = new S3Client({
   region,
   accessKeyId,
   secretAccessKey,
-  signatureVersion: 'v4'  
+  // signatureVersion: 'v4'  
 });
 
 
