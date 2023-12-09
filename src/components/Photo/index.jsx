@@ -1,5 +1,5 @@
 
-const photoUrls = [
+export const photoUrls = [
     'https://pro-photos-stored.s3.eu-north-1.amazonaws.com/rain_swimmer.jpg',
     'https://pro-photos-stored.s3.eu-north-1.amazonaws.com/lazy_summer_daze.jpg',
     'https://pro-photos-stored.s3.eu-north-1.amazonaws.com/red_arrows_fan.jpg',
