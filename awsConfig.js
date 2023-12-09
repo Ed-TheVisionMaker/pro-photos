@@ -1,19 +1,18 @@
-import { S3 } from '@aws-sdk/client-s3';
+import { S3Client } from '@aws-sdk/client-s3';
 
-const region = "eu-north-1";
-const bucketName = "pro-photos-stored";
-const accessKeyId = import.meta.env.VITE_ACCESS_KEY_ID;
-const secretAccessKey = import.meta.env.VITE_SECRET_ACCESS_KEY;
+export const region = "eu-north-1";
+export const bucketName = "pro-photos-stored";
+export const accessKeyId = import.meta.env.VITE_ACCESS_KEY_ID;
+export const secretAccessKey = import.meta.env.VITE_SECRET_ACCESS_KEY;
 
 console.log(region, bucketName, accessKeyId, secretAccessKey);
 
-const s3 = new S3({
+const setupS3Client = new S3Client({
   region,
   accessKeyId,
   secretAccessKey,
-  signatureVersion: 'v4'
+  signatureVersion: 'v4'  
 });
 
 
-export default s3;
-export {bucketName, region};
+export default setupS3Client;

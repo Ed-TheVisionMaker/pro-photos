@@ -1,40 +1,20 @@
-import { S3 } from '@aws-sdk/client-s3';
-import s3, { bucketName, region } from '../../../awsConfig';
+import {
+  S3Client,
+  ListObjectsV2Command,
+} from '@aws-sdk/client-s3';
 import { useEffect } from 'react';
-// Example code to list objects in an S3 bucket using the AWS SDK
+import setupS3Client, { accessKeyId, secretAccessKey, bucketName, region } from '../../../awsConfig';
 
-// const s3 = new S3();
-
-const listObjects = async () => {
-  const params = {
-    Bucket: `${bucketName}`,
-  };
-
-  try {
-    // listObjects.promise() not a function. 
-    // const data = await s3.listObjects(params).promise();
-    console.log(data, 's3 in list objects');
-    const imageUrls = data.Contents.map((object) => {
-      return `https://${params.Bucket}.${region}.s3.amazonaws.com/${object.Key}`;
-    });
-    return imageUrls;
-  } catch (error) {
-    console.error('Error listing objects in S3:', error);
-    return [];
-  }
-};
+// const client = new setupS3Client()
+const client = new S3Client({
+  region,
+  accessKeyId,
+  secretAccessKey,
+  signatureVersion: 'v4'
+})
 
 function Photo() {
-  useEffect(() => {
-    console.log('useEffect photo');
-    async function fetchImages() {
-      const imageUrls = await listObjects();
-      // Set imageUrls state
-    }
-
-    fetchImages();
-  }, []);
-  return <div>// JSX to display images</div>;
-}
+    return <img src='https://pro-photos-stored.s3.eu-north-1.amazonaws.com/lazy_summer_daze.jpg'/>
+};
 
 export default Photo;
