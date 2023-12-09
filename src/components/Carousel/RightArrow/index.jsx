@@ -1,6 +1,19 @@
+import { motion } from 'framer-motion';
+
 function RightArrow({ handleRightArrowClick }) {
+  const slidersVariants = {
+    hover: {
+      scale: 1.2,
+      backgroundColor: '#ff00008e',
+    },
+  };
   return (
-    <div className='right' onClick={() => handleRightArrowClick()}>
+    <motion.div
+      className='right'
+      onClick={() => handleRightArrowClick()}
+      variants={slidersVariants}
+      whileHover='hover'
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         height='20'
@@ -9,7 +22,7 @@ function RightArrow({ handleRightArrowClick }) {
       >
         <path d='m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z' />
       </svg>
-    </div>
+    </motion.div>
   );
 }
 
