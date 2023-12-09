@@ -1,6 +1,4 @@
-// import Photo from './components/Photo';
-import Carousel from './components/Carousel';
-
+import CarouselDisplay from './components/Carousel/CarouselDisplay';
 import { photoUrls } from './components/Photo';
 
 export default function App() {
@@ -12,7 +10,7 @@ export default function App() {
         </h1>
       </header>
       <main>
-      <Carousel images={photoUrls} />
+      <CarouselDisplay images={photoUrls} />
       </main>
       {/* <Photo /> */}
     </div>

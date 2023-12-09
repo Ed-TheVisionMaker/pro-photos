@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LeftArrow from '../LeftArrow';
-import { CodeGuruReviewer } from 'aws-sdk';
 import RightArrow from '../RightArrow';
+import CarouselIndicator from '../CarouselIndicator';
 
-function Carousel({ images }) {
+// build using https://www.freecodecamp.org/news/build-an-image-carousel-with-react-and-framer-motion/
+
+function CarouselDisplay({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleRightArrowClick = () => {
@@ -33,19 +35,10 @@ function Carousel({ images }) {
         <RightArrow handleRightArrowClick={handleRightArrowClick}/>
       </div>
     </div>
-    <CarouselIndicator images={images} handleDotClick={handleDotClick} />
-          {/* <div className="carousel-indicator">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`dot ${currentIndex === index ? "active" : ""}`}
-            onClick={() => handleDotClick(index)}
-          ></div>
-        ))}
-      </div> */}
+    <CarouselIndicator currentIndex={currentIndex} images={images} handleDotClick={handleDotClick} />
     </>
 
   );
 };
 
-export default Carousel;
+export default CarouselDisplay;

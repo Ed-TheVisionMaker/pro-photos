@@ -1,4 +1,4 @@
-function CarouselIndicator({handleDotClick, images}) {
+function CarouselIndicator({currentIndex, handleDotClick, images}) {
     return (
         <div className="carousel-indicator">
         {images.map((_, index) => (
@@ -10,4 +10,6 @@ function CarouselIndicator({handleDotClick, images}) {
         ))}
       </div>
     )
-}
+};
+
+export default CarouselIndicator;
